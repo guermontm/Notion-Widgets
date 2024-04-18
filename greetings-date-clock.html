@@ -40,7 +40,7 @@ h1 {
 .card {
     padding: 10px 25px 10px 25px;
     border-radius: 10px;
-    background: #553c4e;
+    background: #68A2DA;
     width: 85vw;
     color: #fff;
     display: inline-block;
@@ -108,23 +108,25 @@ h1 {
 </div>
 
 <script>
+const options = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+};
+
     function date() {
 var today = new Date();
-document.getElementById('date').innerHTML = today.toDateString();
+document.getElementById('date').innerHTML = today.toLocaleDateString('fr-FR', options);
 }
 
 
 function clock() {
 var today = new Date();
-var hour = zeros(twelveHour(today.getHours()));
+var hour = zeros(today.getHours());
 var minutes = zeros(today.getMinutes());
 var seconds = zeros(today.getSeconds());
-if(today.getHours() >=12){
-    seconds+=" pm"
-}
-else{
-    seconds+=" am"
-}
+
 hrs = today.getHours();
 if (hrs < 12)
         greet = 'Bienvenue ! ';
